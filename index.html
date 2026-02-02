@@ -1,130 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Modular Type MVP</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="brand">
-        <div class="dot"></div>
-        <div>
-          <div class="title">Modular Type MVP</div>
-          <div class="subtitle">Diseña letras con formas en una grilla</div>
-        </div>
-      </div>
-
-      <div class="top-actions">
-        <button id="btnExport" class="btn">Exportar JSON</button>
-        <label class="btn ghost" for="fileImport">Importar JSON</label>
-        <input id="fileImport" type="file" accept="application/json" hidden />
-        <button id="btnReset" class="btn danger">Reset</button>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramientas Modulares</title>
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Herramientas Modulares</h1>
+      <p class="subtitle">Crea formas geométricas con un sistema de grilla modular</p>
     </header>
 
-    <main class="layout">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <section class="panel">
-          <h2>Letra</h2>
-          <div class="row">
-            <select id="letterSelect" class="control"></select>
-            <button id="btnClearLetter" class="btn ghost">Limpiar letra</button>
-          </div>
-          <div class="hint">
-            Tip: Click/arrastrar para pintar. <b>Shift</b> para borrar.
-          </div>
-        </section>
-
-        <section class="panel">
-          <h2>Grilla</h2>
-          <div class="row">
-            <label class="label">Tamaño</label>
-            <select id="gridSize" class="control">
-              <option value="8">8 × 8</option>
-              <option value="9">9 × 9</option>
-              <option value="10">10 × 10</option>
-              <option value="11">11 × 11</option>
-              <option value="12" selected>12 × 12</option>
-              <option value="13">13 × 13</option>
-              <option value="14">14 × 14</option>
-              <option value="15">15 × 15</option>
-              <option value="16">16 × 16</option>
-              <option value="18">18 × 18</option>
-              <option value="20">20 × 20</option>
-            </select>
-          </div>
-          <div class="row">
-            <label class="label">Mostrar líneas</label>
-            <label class="toggle">
-              <input type="checkbox" id="toggleGridLines" checked />
-              <span></span>
-            </label>
-          </div>
-        </section>
-
-        <section class="panel">
-          <h2>Pincel</h2>
-          <div class="row">
-            <label class="label">Forma</label>
-            <select id="shape" class="control">
-              <option value="square" selected>Cuadrado</option>
-              <option value="circle">Círculo</option>
-              <option value="triangle">Triángulo</option>
-              <option value="diamond">Rombo</option>
-            </select>
-          </div>
-
-          <div class="row">
-            <label class="label">Color</label>
-            <input id="color" class="control" type="color" value="#111111" />
-          </div>
-
-          <div class="row">
-            <label class="label">Modo</label>
-            <div class="segmented">
-              <button id="modePaint" class="seg on" type="button">
-                Pintar
-              </button>
-              <button id="modeErase" class="seg" type="button">Borrar</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="panel">
-          <h2>Preview</h2>
-          <input
-            id="previewText"
-            class="control"
-            type="text"
-            value="HOLA"
-            maxlength="32"
-          />
-          <div class="previewWrap">
-            <canvas id="previewCanvas" width="640" height="140"></canvas>
-          </div>
-        </section>
-      </aside>
-
-      <!-- Editor -->
-      <section class="editor">
-        <div class="canvasWrap">
-          <canvas id="editorCanvas" width="720" height="720"></canvas>
+    <main class="tools">
+      <a href="/modular-tools/typeface/index.html" class="tool-card">
+        <div class="tool-icon">
+          <svg viewBox="0 0 100 100" width="120" height="120">
+            <!-- Letra A minimalista con formas modulares -->
+            <line x1="20" y1="80" x2="50" y2="20" stroke="currentColor" stroke-width="8" stroke-linecap="butt"/>
+            <line x1="50" y1="20" x2="80" y2="80" stroke="currentColor" stroke-width="8" stroke-linecap="butt"/>
+            <line x1="30" y1="60" x2="70" y2="60" stroke="currentColor" stroke-width="8" stroke-linecap="butt"/>
+          </svg>
         </div>
-      </section>
+        <h2 class="tool-title">Editor Tipográfico</h2>
+        <p class="tool-description">Diseña letras modulares con formas geométricas básicas</p>
+      </a>
 
-      <!-- Alphabet -->
-      <aside class="alphabet">
-        <div class="alphabetHeader">
-          <h2>Abecedario</h2>
-          <div class="smallHint">Click en una letra para editarla</div>
+      <a href="/modular-tools/drawing/index.html" class="tool-card">
+        <div class="tool-icon">
+          <svg viewBox="0 0 100 100" width="120" height="120">
+            <!-- Formas geométricas libres -->
+            <circle cx="30" cy="30" r="15" stroke="currentColor" stroke-width="8" fill="none"/>
+            <line x1="55" y1="20" x2="55" y2="45" stroke="currentColor" stroke-width="8" stroke-linecap="butt"/>
+            <path d="M 70 70 A 15 15 0 0 1 85 85" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="butt"/>
+            <line x1="20" y1="60" x2="40" y2="80" stroke="currentColor" stroke-width="8" stroke-linecap="butt"/>
+          </svg>
         </div>
-        <div id="alphabetGrid" class="alphabetGrid"></div>
-      </aside>
+        <h2 class="tool-title">Dibujo Libre</h2>
+        <p class="tool-description">Crea composiciones abstractas con el sistema modular</p>
+      </a>
     </main>
 
-    <script src="script.js"></script>
-  </body>
+    <footer class="footer">
+      <p>Sistema de diseño modular basado en formas geométricas</p>
+    </footer>
+  </div>
+</body>
 </html>

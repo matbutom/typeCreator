@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor Tipográfico Modular</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Editor Tipográfico Modular</h1>
+      <div class="header-actions">
+        <button id="btnExport" class="btn">Exportar JSON</button>
+        <label class="btn" for="fileImport">Importar</label>
+        <input id="fileImport" type="file" accept=".json" hidden>
+        <button id="btnReset" class="btn btn-secondary">Reset</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Letra actual</h2>
+          <select id="letterSelect" class="select"></select>
+          <button id="btnClearLetter" class="btn btn-secondary btn-block">Limpiar</button>
+        </section>
+
+        <section class="panel">
+          <h2>Grilla</h2>
+          <div class="grid-controls">
+            <div class="control-row">
+              <label>Columnas</label>
+              <div class="stepper">
+                <button id="btnDecCols" class="btn-stepper">−</button>
+                <span id="colsValue">2</span>
+                <button id="btnIncCols" class="btn-stepper">+</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label>Filas</label>
+              <div class="stepper">
+                <button id="btnDecRows" class="btn-stepper">−</button>
+                <span id="rowsValue">2</span>
+                <button id="btnIncRows" class="btn-stepper">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Proporciones</h2>
+          <div class="grid-controls">
+            <div class="control-row">
+              <label>X-height</label>
+              <div class="stepper">
+                <button id="btnDecXHeight" class="btn-stepper">−</button>
+                <span id="xHeightValue">2</span>
+                <button id="btnIncXHeight" class="btn-stepper">+</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label>Ascendente</label>
+              <div class="stepper">
+                <button id="btnDecAscender" class="btn-stepper">−</button>
+                <span id="ascenderValue">1</span>
+                <button id="btnIncAscender" class="btn-stepper">+</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label>Descendente</label>
+              <div class="stepper">
+                <button id="btnDecDescender" class="btn-stepper">−</button>
+                <span id="descenderValue">1</span>
+                <button id="btnIncDescender" class="btn-stepper">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="control-row" style="margin-top: 12px;">
+            <label>Guías</label>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggleGuides">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div class="hint" style="margin-top: 8px;">
+            Las letras se ajustan automáticamente
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Celda seleccionada</h2>
+          <div id="cellControls" class="cell-controls" style="display: none;">
+            <div class="control-row">
+              <label>Forma</label>
+              <select id="shapeSelect" class="select"></select>
+            </div>
+            <div class="control-row">
+              <label>Rotación</label>
+              <button id="btnRotate" class="btn btn-block">Rotar 90°</button>
+            </div>
+          </div>
+          <div id="noCellSelected" class="hint">
+            Click en una celda para editarla
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Preview</h2>
+          <input 
+            id="previewText" 
+            class="input" 
+            type="text" 
+            value="HOLA" 
+            maxlength="24"
+            placeholder="Escribe algo..."
+          >
+          <div class="preview-canvas-wrap">
+            <canvas id="previewCanvas"></canvas>
+          </div>
+        </section>
+      </aside>
+
+      <section class="editor">
+        <div class="editor-header">
+          <span class="current-letter" id="currentLetterLabel">A</span>
+          <span class="grid-info" id="gridInfo">Grilla 2×2</span>
+        </div>
+        <div class="canvas-container">
+          <canvas id="editorCanvas"></canvas>
+        </div>
+      </section>
+
+      <aside class="alphabet" id="alphabetPanel">
+        <button class="alphabet-toggle" id="alphabetToggle" aria-label="Toggle abecedario">
+          <span class="toggle-arrow">→</span>
+        </button>
+        <div class="alphabet-content">
+          <h2>Abecedario</h2>
+          <div id="alphabetGrid" class="alphabet-grid"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Context Menu -->
+  <div id="contextMenu" class="context-menu" style="display: none;">
+    <div class="context-menu-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dibujo Libre Modular</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-left">
+        <a href="../../index.html" class="back-link">← Inicio</a>
+        <h1>Dibujo Libre Modular</h1>
+      </div>
+      <div class="header-actions">
+        <button id="btnExport" class="btn">Exportar PNG</button>
+        <button id="btnClear" class="btn btn-secondary">Limpiar</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Lienzo</h2>
+          <div class="grid-controls">
+            <div class="control-row">
+              <label>Columnas</label>
+              <div class="stepper">
+                <button id="btnDecCols" class="btn-stepper">−</button>
+                <span id="colsValue">8</span>
+                <button id="btnIncCols" class="btn-stepper">+</button>
+              </div>
+            </div>
+            <div class="control-row">
+              <label>Filas</label>
+              <div class="stepper">
+                <button id="btnDecRows" class="btn-stepper">−</button>
+                <span id="rowsValue">8</span>
+                <button id="btnIncRows" class="btn-stepper">+</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Celda seleccionada</h2>
+          <div id="cellControls" class="cell-controls" style="display: none;">
+            <div class="control-row">
+              <label>Forma</label>
+              <select id="shapeSelect" class="select"></select>
+            </div>
+            <div class="control-row">
+              <label>Rotación</label>
+              <button id="btnRotate" class="btn btn-block">Rotar 90°</button>
+            </div>
+          </div>
+          <div id="noCellSelected" class="hint">
+            Click en una celda para editarla
+          </div>
+        </section>
+      </aside>
+
+      <section class="editor">
+        <div class="canvas-container">
+          <canvas id="editorCanvas"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Context Menu -->
+  <div id="contextMenu" class="context-menu" style="display: none;">
+    <div class="context-menu-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
